@@ -17,6 +17,7 @@
 
             <Label
                 Text="Hello, World!"
+                TextColor="Orange"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
@@ -29,7 +30,7 @@
                 HorizontalOptions="Center" />
 
             <Button
-                x:Name="Fiz modificação"
+                x:Name="Fiz_modificação"
                 Text="Click me"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
