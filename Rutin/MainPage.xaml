@@ -29,7 +29,7 @@
                 HorizontalOptions="Center" />
 
             <Button
-                x:Name="OutroButao"
+                x:Name="OutroOutroButao"
                 Text="Click me"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
