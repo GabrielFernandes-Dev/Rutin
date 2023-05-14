@@ -6,9 +6,11 @@
     xmlns:local="clr-namespace:Rutin"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
 
+        <ShellContent Title="Pagina Inicial"
+                      ContentTemplate="{DataTemplate local:HomePage}" 
+                      Route="HomePage"/>
+
+    </FlyoutItem>    
 </Shell>
