@@ -58,6 +58,7 @@
 	<ItemGroup>
 	  <Folder Include="Resources\Icons\" />
 	  <Folder Include="ViewModels\" />
+	  <Folder Include="Views\" />
 	</ItemGroup>
 
 	<ItemGroup>
