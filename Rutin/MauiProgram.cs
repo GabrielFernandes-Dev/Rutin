@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Rutin.ViewModels;
 
 namespace Rutin;
 
@@ -18,7 +19,8 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
+		builder.Services.AddSingleton<PessoaViewModel>();
+		builder.Services.AddSingleton<MainPage>();
 		return builder.Build();
 	}
 }
