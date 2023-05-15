@@ -57,8 +57,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Resources\Icons\" />
-	  <Folder Include="ViewModels\" />
-	  <Folder Include="Views\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -72,10 +70,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Cadastro.xaml">
+	  <Compile Update="Views\CadastroPage.xaml.cs">
+	    <DependentUpon>CadastroPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\LoginPage.xaml.cs">
+	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\CadastroPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Login.xaml">
+	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

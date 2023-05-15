@@ -1,13 +1,14 @@
 using Rutin.ViewModels;
 
-namespace Rutin;
+namespace Rutin.Views;
 
-public partial class Cadastro : ContentPage
+public partial class CadastroPage : ContentPage
 
 {
-	public Cadastro()
+	public CadastroPage()
 	{
 		InitializeComponent();
+
 		BindingContext = new PessoaViewModel();
 	}
 

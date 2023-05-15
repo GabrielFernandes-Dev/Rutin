@@ -6,6 +6,9 @@
     xmlns:local="clr-namespace:Rutin"
     xmlns:views="clr-namespace:Rutin.Views">
 
+    <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate views:LoginPage}" />
+    <ShellContent Route="CadastroPage" ContentTemplate="{DataTemplate views:CadastroPage}" />
+
     <TabBar>
         <Tab Title="Início" >
             <ShellContent Title="Pagina Inicial" Route="HomePage">
@@ -13,17 +16,17 @@
             </ShellContent>
         </Tab>
         <Tab Title="Atividades">
-            <ShellContent Title="Pagina Inicial" Route="HomePage">
+            <ShellContent Title="Pagina Inicial">
                 <views:HomePage />
             </ShellContent>
         </Tab>
         <Tab Title="Notificações">
-            <ShellContent Title="Pagina Inicial" Route="HomePage">
+            <ShellContent Title="Pagina Inicial">
                 <views:HomePage />
             </ShellContent>
         </Tab>
         <Tab Title="Perfil">
-            <ShellContent Title="Pagina Inicial" Route="HomePage">
+            <ShellContent Title="Pagina Inicial">
                 <views:HomePage />
             </ShellContent>
         </Tab>

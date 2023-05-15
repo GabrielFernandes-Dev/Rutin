@@ -3,13 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:Rutin.ViewModels"
              x:DataType="viewmodel:PessoaViewModel"
-             x:Class="Rutin.Cadastro"
+             x:Class="Rutin.Views.CadastroPage"
+             Shell.NavBarIsVisible="False"
              Title="Cadastro"
              BackgroundColor="LightGray">
+    
     <VerticalStackLayout
         Spacing="30">
         <Button 
             BackgroundColor="LightGray"
+            Command="{Binding VoltarCommand}"
             Text="Voltar"
             TextColor="Black"
             HorizontalOptions="Center"
@@ -143,7 +146,8 @@
         </Grid>
 
         <Button
-            Text="Ir para questionário"
+            Text="Cadastrar"
+            Command="{Binding CadastrarCommand}"
             BackgroundColor="#0d99ff"
             HorizontalOptions="Center"
             MinimumWidthRequest="250"

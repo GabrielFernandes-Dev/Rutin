@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Rutin.Login"
+             x:Class="Rutin.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
              Title="Login">
+    
     <VerticalStackLayout BackgroundColor="LightGray">
         <Label 
             Text="RUTIN"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
+            FontAttributes="Bold"
             FontSize="80"
-            TextColor="IndianRed"
+            TextColor="#D74F4F"
             Margin="0,100,0,0"/>
+        
         <Label
             Text="Login"
             HorizontalOptions="Center"
+            FontAttributes="Bold"
             TextColor="Black"
             FontSize="30"
-            Margin="0,50,230,0"
+            Margin="-8,50,230,0"
             />
+        
         <Label
             Text="Email"
             HorizontalOptions="Center"
@@ -25,6 +31,7 @@
             FontSize="20"
             Margin="0,20,253,0"
             />
+        
         <Entry
             TextColor="Black"
             BackgroundColor="White"
@@ -32,6 +39,7 @@
             Margin="0,15,5,0"
             MinimumWidthRequest="310"
             />
+        
         <Label
             Text="Senha"
             HorizontalOptions="Center"
@@ -39,6 +47,7 @@
             FontSize="20"
             Margin="0,20,253,0"
             />
+        
         <Entry
             TextColor="Black"
             BackgroundColor="White"
@@ -47,14 +56,15 @@
             MinimumWidthRequest="310"
             IsPassword="True"
             />
+
         <Button
             Text="Entrar"
+            Command="{Binding LoginCommand}"
             TextColor="White"
             BackgroundColor="#0d99ff"
             HorizontalOptions="Center"
             Margin="0,20,5,0"
-            MinimumWidthRequest="310"
-            />
+            MinimumWidthRequest="310"/>
 
         <Button
             Text="Esqueceu a senha?"
@@ -62,19 +72,16 @@
             FontSize="12"
             BackgroundColor="LightGray"
             HorizontalOptions="Center"
-            Margin="0,10,200,0"
-
-            />
+            Margin="0,10,200,0"/>
 
         <Button
             Text="Registrar"
+            Command="{Binding CadastrarCommand}"
             TextColor="#87c5f1"
             FontSize="12"
             BackgroundColor="LightGray"
             HorizontalOptions="Center"
-            Margin="0,-44,-245,0"
-
-            />
+            Margin="0,-44,-245,0"/>
 
     </VerticalStackLayout>
 </ContentPage>

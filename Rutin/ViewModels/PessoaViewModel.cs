@@ -1,11 +1,16 @@
-﻿using Services;
+﻿using CommunityToolkit.Mvvm.Input;
+using Services;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace Rutin.ViewModels;
 
 public partial class PessoaViewModel :ObservableObject, INotifyPropertyChanged
 {
+
+    public ICommand CadastrarCommand => new AsyncRelayCommand(OnCadastrarClicked);
+    public ICommand VoltarCommand => new AsyncRelayCommand(OnVoltarClicked);
     public PessoaViewModel(){ }
 
     [ObservableProperty]
@@ -114,4 +119,13 @@ public partial class PessoaViewModel :ObservableObject, INotifyPropertyChanged
 
     public string ConfirmaSenha => ConfirmaSenhaInput;
 
+    private async Task OnCadastrarClicked()
+    {
+        await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+    }
+
+    private async Task OnVoltarClicked()
+    {
+        await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+    }
 }
