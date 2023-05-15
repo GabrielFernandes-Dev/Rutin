@@ -4,13 +4,28 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Rutin"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:views="clr-namespace:Rutin.Views">
 
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-
-        <ShellContent Title="Pagina Inicial"
-                      ContentTemplate="{DataTemplate local:HomePage}" 
-                      Route="HomePage"/>
-
-    </FlyoutItem>    
+    <TabBar>
+        <Tab Title="Início" >
+            <ShellContent Title="Pagina Inicial" Route="HomePage">
+                <views:HomePage />
+            </ShellContent>
+        </Tab>
+        <Tab Title="Atividades">
+            <ShellContent Title="Pagina Inicial" Route="HomePage">
+                <views:HomePage />
+            </ShellContent>
+        </Tab>
+        <Tab Title="Notificações">
+            <ShellContent Title="Pagina Inicial" Route="HomePage">
+                <views:HomePage />
+            </ShellContent>
+        </Tab>
+        <Tab Title="Perfil">
+            <ShellContent Title="Pagina Inicial" Route="HomePage">
+                <views:HomePage />
+            </ShellContent>
+        </Tab>
+    </TabBar>    
 </Shell>
