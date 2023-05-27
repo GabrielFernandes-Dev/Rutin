@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:Rutin.Converters;assembly=Rutin"
+             x:Class="Rutin.Components.CardAtividadeView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:BooleanToSizeConverter x:Key="BooleanToSizeConverter"/>
+            <converters:BooleanToNotificacaoMarginConverter x:Key="BooleanToNotificacaoMarginConverter"/>
+            <converters:BoolToDescricaoMarginConverter x:Key="BoolToDescricaoMarginConverter"/>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Border Grid.Row="0"
+            Margin="0,20,0,0"
+            WidthRequest="380"
+            HeightRequest="{Binding Expandido, Converter={StaticResource BooleanToSizeConverter}}"
+            StrokeShape="RoundRectangle 8">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.7*"/>
+                <ColumnDefinition Width="1.8*"/>
+                <ColumnDefinition Width="0.3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   Text="{Binding TituloAtividade}"
+                   Margin="10,10,10,10"/>
+
+            <Label Grid.Row="0"
+                   Grid.Column="1"
+                   Text="{Binding HorarioAtividade}"
+                   Margin="10,10,10,10"/>
+
+            <Button Grid.Row="0"
+                    Grid.Column="2"
+                    Text="O"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    WidthRequest="22"
+                    HeightRequest="22"
+                    Padding="0"
+                    Margin="0,10,10,0"
+                    HorizontalOptions="End"
+                    VerticalOptions="Start"/>
+
+            <Label Grid.Row="1"
+                   Text="{Binding TipoNotificacao}"
+                   TextColor="#D74F4F"
+                   FontSize="11"
+                   FontAttributes="Bold"
+                   Margin="{Binding Expandido, Converter={StaticResource BooleanToNotificacaoMarginConverter}}"/>
+
+            <Label Grid.Row="1"
+                   Text="{Binding DescricaoAtividade}"
+                   IsVisible="{Binding Expandido}"
+                   Margin="11,-20,0,0"/>
+
+            <Button Grid.Row="1"
+                    Grid.Column="2"
+                    Text="↓"
+                    TextColor="Black"
+                    FontSize="22"
+                    FontAttributes="Bold"
+                    BackgroundColor="White"
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    Padding="0"
+                    Margin="0,0,6,3"
+                    Command="{Binding Expandir}"
+                    HorizontalOptions="End"
+                    VerticalOptions="End"/>
+        </Grid>
+    </Border>
+    
+</ContentView>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Rutin.Components;assembly=Rutin"
              x:Class="Rutin.Views.HomePage"
              Shell.NavBarIsVisible="False"
              BackgroundColor="LightGray">
@@ -30,7 +31,13 @@
                     Padding="0"/>
         </HorizontalStackLayout>
 
-        <Grid>
+        <Grid x:Name="AtividadeGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        
+        <!--<Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -39,61 +46,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            
-            <Border Grid.Row="0"
-                    Margin="0,20,0,0"
-                    WidthRequest="380"
-                    HeightRequest="75"
-                    StrokeShape="RoundRectangle 8">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1.7*"/>
-                        <ColumnDefinition Width="1.8*"/>
-                        <ColumnDefinition Width="0.3*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
 
-                    <Label Grid.Row="0"
-                           Grid.Column="0"
-                           Text="Titulo Atividade"
-                           Margin="10"/>
-
-                    <Label Grid.Row="0"
-                           Grid.Column="1"
-                           Text="16:00 ➝ 17:10"
-                           Margin="10"/>
-
-                    <Button Grid.Row="0"
-                            Grid.Column="2"
-                            Text="O"
-                            TextColor="Black"
-                            BackgroundColor="Transparent"
-                            Padding="0"
-                            Margin="8"/>
-
-                    <Label Grid.Row="1"
-                           Text="Tipo da notificação"
-                           TextColor="#D74F4F"
-                           FontSize="11"
-                           FontAttributes="Bold"
-                           Margin="10,-5,0,0"/>
-
-                    <Button Grid.Row="1"
-                            Grid.Column="2"
-                            Text="↓"
-                            TextColor="Black"
-                            FontSize="22"
-                            FontAttributes="Bold"
-                            BackgroundColor="Transparent"
-                            WidthRequest="36"
-                            HeightRequest="36"
-                            Padding="0"
-                            Margin="0,-20,0,0"/>
-                </Grid>
-            </Border>
+            <controls:CardAtividadeView/>
 
             <Border Grid.Row="1"
                     Margin="0,20,0,0"
@@ -139,7 +93,7 @@
                            FontSize="11"
                            FontAttributes="Bold"
                            Margin="10,-15,0,0"/>
-                    
+
                     <Label Grid.Row="2"
                            Grid.Column="0"
                            Grid.ColumnSpan="2" 
@@ -162,61 +116,7 @@
                 </Grid>
             </Border>
 
-            <Border Grid.Row="2"
-                    Margin="0,20,0,0"
-                    WidthRequest="380"
-                    HeightRequest="75"
-                    StrokeShape="RoundRectangle 8">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1.7*"/>
-                        <ColumnDefinition Width="1.8*"/>
-                        <ColumnDefinition Width="0.3*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                    <Label Grid.Row="0"
-                           Grid.Column="0"
-                           Text="Titulo Atividade"
-                           Margin="10"/>
-
-                    <Label Grid.Row="0"
-                           Grid.Column="1"
-                           Text="16:00 ➝ 17:10"
-                           Margin="10"/>
-
-                    <Button Grid.Row="0"
-                            Grid.Column="2"
-                            Text="O"
-                            TextColor="Black"
-                            BackgroundColor="Transparent"
-                            Padding="0"
-                            Margin="8"/>
-
-                    <Label Grid.Row="1"
-                           Text="Tipo da notificação"
-                           TextColor="#D74F4F"
-                           FontSize="11"
-                           FontAttributes="Bold"
-                           Margin="10,-5,0,0"/>
-
-                    <Button Grid.Row="1"
-                            Grid.Column="2"
-                            Text="↓"
-                            TextColor="Black"
-                            FontSize="22"
-                            FontAttributes="Bold"
-                            BackgroundColor="Transparent"
-                            WidthRequest="36"
-                            HeightRequest="36"
-                            Padding="0"
-                            Margin="0,-20,0,0"/>
-                </Grid>
-            </Border>
-        </Grid>
+        </Grid>-->
 
     </VerticalStackLayout>
 </ContentPage>
