@@ -1,4 +1,4 @@
-using Rutin.Components;
+using Rutin.Views.Controls;
 
 namespace Rutin.Views;
 

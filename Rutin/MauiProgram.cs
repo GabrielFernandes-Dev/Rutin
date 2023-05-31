@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Rutin.ViewModels;
+using SimpleToolkit.SimpleShell;
 
 namespace Rutin;
 
@@ -15,8 +16,9 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+        builder.UseSimpleShell();
 
-		builder.Services.AddSingleton<PessoaViewModel>();
+        builder.Services.AddSingleton<PessoaViewModel>();
 		builder.Services.AddSingleton<LoginPage>();
 		builder.Services.AddTransient<CadastroPage>();
 

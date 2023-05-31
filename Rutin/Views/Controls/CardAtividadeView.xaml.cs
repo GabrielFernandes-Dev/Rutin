@@ -1,4 +1,4 @@
-namespace Rutin.Components;
+namespace Rutin.Views.Controls;
 
 public partial class CardAtividadeView : ContentView
 {

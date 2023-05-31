@@ -49,21 +49,32 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\icon_chat.png" />
+	  <None Remove="Resources\Images\icon_folder.png" />
+	  <None Remove="Resources\Images\icon_house.png" />
+	  <None Remove="Resources\Images\icon_pin.png" />
+	  <None Remove="Resources\Images\icon_ribbon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="SimpleToolkit.Core" Version="2.0.6" />
+		<PackageReference Include="SimpleToolkit.SimpleShell" Version="2.1.1" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Components\" />
 	  <Folder Include="Resources\Icons\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Components\CardAtividadeView.xaml">
+	  <MauiXaml Update="Views\Controls\CardAtividadeView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\HomePage.xaml">
+	  <MauiXaml Update="Views\Pages\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
@@ -74,19 +85,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\CadastroPage.xaml.cs">
+	  <Compile Update="Views\Pages\CadastroPage.xaml.cs">
 	    <DependentUpon>CadastroPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\LoginPage.xaml.cs">
+	  <Compile Update="Views\Pages\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\CadastroPage.xaml">
+	  <MauiXaml Update="Views\Pages\CadastroPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\LoginPage.xaml">
+	  <MauiXaml Update="Views\Pages\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

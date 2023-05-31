@@ -2,7 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:Rutin.Converters;assembly=Rutin"
-             x:Class="Rutin.Components.CardAtividadeView">
+             x:Class="Rutin.Views.Controls.CardAtividadeView">
 
     <ContentView.Resources>
         <ResourceDictionary>
@@ -16,6 +16,8 @@
             Margin="0,20,0,0"
             WidthRequest="380"
             HeightRequest="{Binding Expandido, Converter={StaticResource BooleanToSizeConverter}}"
+            BackgroundColor="White"
+            StrokeThickness="0.2"
             StrokeShape="RoundRectangle 8">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -31,10 +33,12 @@
             <Label Grid.Row="0"
                    Grid.Column="0"
                    Text="{Binding TituloAtividade}"
+                   TextColor="Black"
                    Margin="10,10,10,10"/>
 
             <Label Grid.Row="0"
                    Grid.Column="1"
+                   TextColor="Black"
                    Text="{Binding HorarioAtividade}"
                    Margin="10,10,10,10"/>
 
@@ -57,7 +61,9 @@
                    FontAttributes="Bold"
                    Margin="{Binding Expandido, Converter={StaticResource BooleanToNotificacaoMarginConverter}}"/>
 
-            <Label Grid.Row="1"
+            <Label Grid.Row="2"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2" 
                    Text="{Binding DescricaoAtividade}"
                    IsVisible="{Binding Expandido}"
                    Margin="11,-20,0,0"/>
