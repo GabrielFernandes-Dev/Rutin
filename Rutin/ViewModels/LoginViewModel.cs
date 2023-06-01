@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using System.ComponentModel;
-using System.Windows.Input;
+﻿using Rutin.Views.Pages;
 
 namespace Rutin.ViewModels;
 

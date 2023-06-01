@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Rutin.ViewModels;
+using Rutin.Views.Pages;
 using SimpleToolkit.SimpleShell;
 
 namespace Rutin;

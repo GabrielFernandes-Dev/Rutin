@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:Rutin.ViewModels"
              x:DataType="viewmodel:PessoaViewModel"
-             x:Class="Rutin.Views.CadastroPage"
+             x:Class="Rutin.Views.Pages.CadastroPage"
              Shell.NavBarIsVisible="False"
              Title="Cadastro"
              BackgroundColor="LightGray">

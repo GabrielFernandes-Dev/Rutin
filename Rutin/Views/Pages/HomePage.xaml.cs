@@ -1,6 +1,6 @@
 using Rutin.Views.Controls;
 
-namespace Rutin.Views;
+namespace Rutin.Views.Pages;
 
 public partial class HomePage : ContentPage
 {

@@ -1,4 +1,6 @@
-﻿namespace Rutin;
+﻿using Rutin.Views.Pages;
+
+namespace Rutin;
 
 public partial class App : Application
 {

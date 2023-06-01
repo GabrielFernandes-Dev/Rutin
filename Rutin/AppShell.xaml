@@ -4,10 +4,11 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Rutin"
-    xmlns:views="clr-namespace:Rutin.Views">
+    xmlns:views="clr-namespace:Rutin.Views.Pages">
 
     <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate views:LoginPage}" />
     <ShellContent Route="CadastroPage" ContentTemplate="{DataTemplate views:CadastroPage}" />
+    <ShellContent Route="NovaAtividadePage" ContentTemplate="{DataTemplate views:NovaAtividadePage}" />
 
     <TabBar>
         <Tab Title="Início" >
