@@ -15,15 +15,22 @@ public partial class HomePage : ContentPage
 	{
         base.OnAppearing();
 
-		for (int i = 0; i < (BindingContext as HomeViewModel).Atividades.Count; i++)
-		{
-			AtividadeGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-			CardAtividadeView card = new CardAtividadeView 
-			{
-				BindingContext = (BindingContext as HomeViewModel).Atividades[i]
-            };
-			Grid.SetRow(card, i);
-			AtividadeGrid.Children.Add(card);
-		}
+        for (int i = 0; i < (BindingContext as HomeViewModel).Atividades.Count; i++)
+        {
+            try
+            {
+                AtividadeGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                CardAtividadeView duplicate = new CardAtividadeView
+                {
+                    BindingContext = (BindingContext as HomeViewModel).Atividades[i]
+                };
+                Grid.SetRow(duplicate, i);
+                AtividadeGrid.Children.Add(duplicate);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Catch block caught an exception in the code!");
+            }
+        }
     }
 }
