@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Rutin.ViewModels"
+             x:DataType="viewmodel:PessoaViewModel"
              x:Class="Rutin.Views.Pages.LoginPage"
              Shell.NavBarIsVisible="False"
              Title="Login">
@@ -34,6 +36,7 @@
         
         <Entry
             x:Name="Email"
+            Text="{Binding EmailLoginInput}"
             TextColor="Black"
             BackgroundColor="White"
             HorizontalOptions="Center"
@@ -51,6 +54,7 @@
         
         <Entry
             x:Name="Senha"
+            Text="{Binding SenhaLoginInput}"
             TextColor="Black"
             BackgroundColor="White"
             HorizontalOptions="Center"
@@ -78,7 +82,7 @@
 
         <Button
             Text="Registrar"
-            Command="{Binding CadastrarCommand}"
+            Command="{Binding RegistrarCommand}"
             TextColor="#87c5f1"
             FontSize="12"
             BackgroundColor="LightGray"
