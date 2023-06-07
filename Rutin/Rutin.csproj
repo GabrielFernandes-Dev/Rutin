@@ -66,6 +66,8 @@
 		<PackageReference Include="SimpleToolkit.Core" Version="2.0.6" />
 		<PackageReference Include="SimpleToolkit.SimpleShell" Version="2.1.1" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.5" />
+		<PackageReference Include="SQLitePCLRaw.core" Version="2.1.5" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -75,6 +77,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\Controls\CardAtividadeView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Pages\CriarAtividadePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Pages\HomePage.xaml">

@@ -1,29 +1,48 @@
 using Rutin.Views.Controls;
 
-namespace Rutin.Views;
+namespace Rutin.Views.Pages;
 
 public partial class HomePage : ContentPage
 {
+    private HomeViewModel viewModel;
 	public HomePage()
 	{
 		InitializeComponent();
 
-		BindingContext = new HomeViewModel();
+        viewModel = new HomeViewModel();
+		BindingContext = viewModel;
 	}
 
-	protected override void OnAppearing()
+	protected override async void OnAppearing()
 	{
         base.OnAppearing();
+        await viewModel.AdicionarAtividades();
 
-		for (int i = 0; i < (BindingContext as HomeViewModel).Atividades.Count; i++)
-		{
-			AtividadeGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-			CardAtividadeView card = new CardAtividadeView 
-			{
-				BindingContext = (BindingContext as HomeViewModel).Atividades[i]
-            };
-			Grid.SetRow(card, i);
-			AtividadeGrid.Children.Add(card);
-		}
+        for (int i = 0; i < (BindingContext as HomeViewModel).Atividades.Count; i++)
+        {
+            try
+            {
+                AtividadeGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                CardAtividadeView duplicate = new CardAtividadeView
+                {
+                    BindingContext = (BindingContext as HomeViewModel).Atividades[i]
+                };
+                Grid.SetRow(duplicate, i);
+                AtividadeGrid.Children.Add(duplicate);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Catch block caught an exception in the code!");
+            }
+        }
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+
+        viewModel.Atividades.Clear();
+        AtividadeGrid.Children.Clear();
+        AtividadeGrid.RowDefinitions.Clear();
     }
 }

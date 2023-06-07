@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Rutin.ViewModels;
+using Rutin.Views.Controls;
+using Rutin.Views.Pages;
 using SimpleToolkit.SimpleShell;
 
 namespace Rutin;
@@ -18,14 +20,14 @@ public static class MauiProgram
 			});
         builder.UseSimpleShell();
 
+#if DEBUG
+		builder.Logging.AddDebug();
+#endif
+
         builder.Services.AddSingleton<PessoaViewModel>();
 		builder.Services.AddSingleton<LoginPage>();
 		builder.Services.AddTransient<CadastroPage>();
 
-
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
 		return builder.Build();
 	}
 }

@@ -11,9 +11,9 @@ public class AtividadeModel
     [Column("nome")]
     public string Nome { get; set; }
     [Column("hrinicio")]
-    public DateTime HorarioInicio { get; set; }
+    public TimeSpan HorarioInicio { get; set; }
     [Column("hrfinal")]
-    public DateTime HorarioFinal { get; set; }
+    public TimeSpan HorarioFinal { get; set; }
     [Column("notificacao")]
     public string TipoNotificacao { get; set; }
     [Column("descricao")]
