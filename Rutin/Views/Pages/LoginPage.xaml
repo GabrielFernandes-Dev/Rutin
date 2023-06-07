@@ -33,6 +33,7 @@
             />
         
         <Entry
+            x:Name="Email"
             TextColor="Black"
             BackgroundColor="White"
             HorizontalOptions="Center"
@@ -49,6 +50,7 @@
             />
         
         <Entry
+            x:Name="Senha"
             TextColor="Black"
             BackgroundColor="White"
             HorizontalOptions="Center"
