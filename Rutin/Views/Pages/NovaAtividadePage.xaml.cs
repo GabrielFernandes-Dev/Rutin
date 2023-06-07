@@ -6,12 +6,9 @@ public partial class NovaAtividadePage : ContentPage
 	{
 		InitializeComponent();
 
-        var tiponotificacao = new List<string>();
-        tiponotificacao.Add("Alarme");
-        tiponotificacao.Add("Notificação Silenciosa");
-        tiponotificacao.Add("Notificação Adiantada");
-        tiponotificacao.Add("Notificação Atrasada");
+        BindingContext = new NovaAtividadeViewModel();
 
-        picker.ItemsSource = tiponotificacao;
+		picker.SetBinding(Picker.ItemsSourceProperty, nameof(NovaAtividadeViewModel.TipoNotificacao));
+		picker.SetBinding(Picker.SelectedItemProperty, nameof(NovaAtividadeViewModel.NotificacaoSelecionada));
     }
 }

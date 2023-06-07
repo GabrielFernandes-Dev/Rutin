@@ -26,6 +26,7 @@
             <Button Grid.Column="0"
                     Grid.Row="0"
                     Text="Voltar" 
+                    Command="{Binding Voltar}"
                     TextColor="Black"
                     BackgroundColor="Transparent"
                     HorizontalOptions="Start"/>
@@ -61,6 +62,7 @@
 
                 <Entry  Grid.Row="1"
                         Placeholder="Nome da atividade"
+                        Text="{Binding NomeAtividade}"
                         ClearButtonVisibility="WhileEditing"
                         FontSize="Medium"
                         HorizontalOptions="Center"
@@ -92,7 +94,7 @@
 
                 <TimePicker Grid.Row="1"
                             Grid.Column="0"
-                            Time="12:00:00"
+                            Time="{Binding HrInicial}"
                             Format=""
                             HorizontalOptions="Start"/>
 
@@ -104,7 +106,7 @@
 
                 <TimePicker Grid.Row="1"
                             Grid.Column="1"
-                            Time="13:00:00" 
+                            Time="{Binding HrFinal}" 
                             HorizontalOptions="Start"/>
 
             </Grid>
@@ -157,6 +159,7 @@
 
                 <Editor Grid.Row="1"
                         Placeholder="Decrição"
+                        Text="{Binding DescricaoAtividade}"
                         FontSize="Medium"
                         HorizontalOptions="Center"
                         WidthRequest="300"
@@ -168,7 +171,8 @@
                     Text="Salvar"
                     BackgroundColor="#0D99FF"
                     WidthRequest="350"
-                    Margin="0,250,0,0"/>
+                    Margin="0,250,0,0"
+                    Command="{Binding SalvarAtividade}"/>
 
         </Grid>
     </StackLayout>

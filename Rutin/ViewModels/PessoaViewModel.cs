@@ -113,7 +113,7 @@ public partial class PessoaViewModel :ObservableObject, INotifyPropertyChanged
 
     public event PropertyChangedEventHandler PropertyChanged;
 
-    void OnPropertyChanged([CallerMemberName] string cpf = null)
+    public void OnPropertyChanged([CallerMemberName] string cpf = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(cpf));
     }

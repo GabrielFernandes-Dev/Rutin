@@ -17,7 +17,7 @@ public static class AtividadeService
         await db.CreateTableAsync<AtividadeModel>();
     }
 
-    public static async Task AddAtividade(string nome, DateTime hrinicial, DateTime hrfinal, string notificacao, string descricao)
+    public static async Task AddAtividade(string nome, TimeSpan hrinicial, TimeSpan hrfinal, string notificacao, string descricao)
     {
         await Init();
         AtividadeModel atividade = new AtividadeModel()
@@ -32,7 +32,7 @@ public static class AtividadeService
         await db.InsertAsync(atividade);
     }
 
-    public static async Task UpdateAtividade(int id, string nome, DateTime hrinicial, DateTime hrfinal, string notificacao, string descricao)
+    public static async Task UpdateAtividade(int id, string nome, TimeSpan hrinicial, TimeSpan hrfinal, string notificacao, string descricao)
     {
         await Init();
         AtividadeModel atividade = new AtividadeModel()

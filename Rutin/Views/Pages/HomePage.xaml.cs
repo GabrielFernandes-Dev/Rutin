@@ -4,16 +4,19 @@ namespace Rutin.Views.Pages;
 
 public partial class HomePage : ContentPage
 {
+    private HomeViewModel viewModel;
 	public HomePage()
 	{
 		InitializeComponent();
 
-		BindingContext = new HomeViewModel();
+        viewModel = new HomeViewModel();
+		BindingContext = viewModel;
 	}
 
-	protected override void OnAppearing()
+	protected override async void OnAppearing()
 	{
         base.OnAppearing();
+        await viewModel.AdicionarAtividades();
 
         for (int i = 0; i < (BindingContext as HomeViewModel).Atividades.Count; i++)
         {
@@ -32,5 +35,14 @@ public partial class HomePage : ContentPage
                 Console.WriteLine("Catch block caught an exception in the code!");
             }
         }
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+
+        viewModel.Atividades.Clear();
+        AtividadeGrid.Children.Clear();
+        AtividadeGrid.RowDefinitions.Clear();
     }
 }

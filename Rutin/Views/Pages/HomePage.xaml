@@ -5,38 +5,39 @@
              x:Class="Rutin.Views.Pages.HomePage"
              Shell.NavBarIsVisible="False"
              BackgroundColor="LightGray">
-
-    <VerticalStackLayout>
-        <HorizontalStackLayout Padding="0,10,0,0"
-                               HorizontalOptions="CenterAndExpand">
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout Padding="0,10,0,0"
+                                   HorizontalOptions="CenterAndExpand">
             
-            <StackLayout Margin="10,0,60,0">
-                <Label Text="3" TextColor="#D74F4F" FontSize="18" HorizontalTextAlignment="Center"/>
-                <Label Text="Junho"  FontSize="18"/>
-            </StackLayout>
+                <StackLayout Margin="5,0,10,0">
+                    <Label Text="{Binding DiaSemana}" TextColor="#D74F4F" FontSize="18" HorizontalTextAlignment="Center"/>
+                    <Label Text="{Binding Mes}"  FontSize="18"/>
+                </StackLayout>
 
-            <Label Text="SEGUNDA" 
-                   FontAttributes="Bold"
-                   TextColor="#D74F4F" 
-                   FontSize="35"
-                   Margin="0,0,60,0"/>
+                <Label Text="{Binding NomeDiaSemana}" 
+                       FontAttributes="Bold"
+                       TextColor="#D74F4F" 
+                       FontSize="35"
+                       Margin="0,0,15,0"/>
 
-            <Button Text="+" 
-                    Command="{Binding AdicionarAtividadeCommand}"
-                    TextColor="White"
-                    FontSize="27"
-                    FontAttributes="Bold"
-                    BackgroundColor="#D74F4F"
-                    WidthRequest="36"
-                    HeightRequest="36"
-                    CornerRadius="5"
-                    Padding="0"/>
-        </HorizontalStackLayout>
+                <Button Text="+" 
+                        Command="{Binding AdicionarAtividadeCommand}"
+                        TextColor="White"
+                        FontSize="27"
+                        FontAttributes="Bold"
+                        BackgroundColor="#D74F4F"
+                        WidthRequest="36"
+                        HeightRequest="36"
+                        CornerRadius="5"
+                        Padding="0"/>
+            </HorizontalStackLayout>
 
-        <Grid x:Name="AtividadeGrid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-        </Grid>
-    </VerticalStackLayout>
+            <Grid x:Name="AtividadeGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
