@@ -12,6 +12,10 @@ public partial class PessoaViewModel :ObservableObject, INotifyPropertyChanged
 
     public ICommand CadastrarCommand => new AsyncRelayCommand(OnCadastrarClicked);
     public ICommand VoltarCommand => new AsyncRelayCommand(OnVoltarClicked);
+
+    public ICommand RegistrarCommand => new AsyncRelayCommand(OnRegistrarClicked);
+    public ICommand LoginCommand => new AsyncRelayCommand(OnLoginClicked);
+
     public PessoaViewModel(){ }
 
     [ObservableProperty]
@@ -125,12 +129,36 @@ public partial class PessoaViewModel :ObservableObject, INotifyPropertyChanged
         if (cpfIsValid && isSenhaValid)
         {
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
-            LoginRegistroService.Registrar(Nome, cpf, Email, Senha);
+            await LoginRegistroService.Registrar(Nome, cpf, Email, Senha);
         }
     }
+
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(EmailLogin))]
+    string emailLoginInput;
+
+    public string EmailLogin => EmailLoginInput;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(SenhaLogin))]
+    string senhaLoginInput;
+
+    public string SenhaLogin => EmailLoginInput;
 
     private async Task OnVoltarClicked()
     {
         await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
     }
+
+    private async Task OnRegistrarClicked()
+    {
+        await Shell.Current.GoToAsync($"//{nameof(CadastroPage)}");
+    }
+
+    private async Task OnLoginClicked()
+    {
+        await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+    }
+
 }
