@@ -10,8 +10,6 @@ public class UsuarioModel
     public int Id { get; set; }
     [Column("nome")]
     public string Nome { get; set; }
-    [Column("sobrenome")]
-    public string Sobrenome { get; set; }
     [Column("cpf")]
     public string Cpf { get; set; }
     [Column("email")]
