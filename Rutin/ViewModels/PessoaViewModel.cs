@@ -122,7 +122,11 @@ public partial class PessoaViewModel :ObservableObject, INotifyPropertyChanged
 
     private async Task OnCadastrarClicked()
     {
-        await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+        if (cpfIsValid && isSenhaValid)
+        {
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+            LoginRegistroService.Registrar(Nome, cpf, Email, Senha);
+        }
     }
 
     private async Task OnVoltarClicked()
