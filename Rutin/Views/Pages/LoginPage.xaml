@@ -23,22 +23,29 @@
             FontSize="30"
             Margin="-8,50,230,0"
             />
-        
+
+        <Label Text="Email ou senha incorreto"
+               TextColor="Red"
+               FontSize="18"
+               HorizontalOptions="Center"
+               Margin="0,10,0,0"
+               IsVisible="{Binding CredenciaisIncorretas}"/>
+
         <Label
             Text="Email"
             HorizontalOptions="Center"
             TextColor="Black"
             FontSize="20"
-            Margin="0,20,253,0"
+            Margin="0,5,253,0"
             />
         
         <Entry
-            x:Name="Email"
             TextColor="Black"
             BackgroundColor="White"
             HorizontalOptions="Center"
             Margin="0,15,5,0"
             MinimumWidthRequest="310"
+            Text="{Binding Email}"
             />
         
         <Label
@@ -50,13 +57,13 @@
             />
         
         <Entry
-            x:Name="Senha"
             TextColor="Black"
             BackgroundColor="White"
             HorizontalOptions="Center"
             Margin="0,15,5,0"
             MinimumWidthRequest="310"
             IsPassword="True"
+            Text="{Binding Senha}"
             />
 
         <Button
@@ -79,7 +86,7 @@
         <Button
             Text="Registrar"
             Command="{Binding CadastrarCommand}"
-            TextColor="#87c5f1"
+            TextColor="#0d99ff"
             FontSize="12"
             BackgroundColor="LightGray"
             HorizontalOptions="Center"

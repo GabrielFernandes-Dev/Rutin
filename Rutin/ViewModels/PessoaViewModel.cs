@@ -125,7 +125,7 @@ public partial class PessoaViewModel :ObservableObject, INotifyPropertyChanged
         if (cpfIsValid && isSenhaValid)
         {
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
-            LoginRegistroService.Registrar(Nome, cpf, Email, Senha);
+            await LoginRegistroService.Registrar(Nome, cpf, Email, Senha);
         }
     }
 

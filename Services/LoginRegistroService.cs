@@ -9,16 +9,18 @@ namespace Services;
 
 public static class LoginRegistroService
 {
-    static SQLiteAsyncConnection dataBase;
+    static SQLiteAsyncConnection db;
     static async Task Init()
     {
-        if(dataBase != null)
-        {
+        if(db != null)
             return;
-        }
-        var dataBasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MyData.db");
-        dataBase = new SQLiteAsyncConnection(dataBasePath);
-        await dataBase.CreateTableAsync<UsuarioModel>();
+
+        var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "RutinData.db");
+
+        bool isDatabaseCreated = File.Exists(databasePath);
+
+        db = new SQLiteAsyncConnection(databasePath);
+        await db.CreateTableAsync<UsuarioModel>();
     }
 
     public static async Task Registrar(String nome, String cpf, String email, String senha)
@@ -31,20 +33,35 @@ public static class LoginRegistroService
             Email = email,
             Senha = senha
         };
-        int id = await dataBase.InsertAsync(usuario);
+        int id = await db.InsertAsync(usuario);
     }
 
     public static async Task<IEnumerable<UsuarioModel>> Acessar()
     {
         await Init();
-        var usuario = await dataBase.Table<UsuarioModel>().ToListAsync();
+        var usuario = await db.Table<UsuarioModel>().ToListAsync();
         return usuario;
     }
 
     public static async Task Excluir(int id)
     {
         await Init();
-        await dataBase.DeleteAsync<UsuarioModel>(id);
+        await db.DeleteAsync<UsuarioModel>(id);
+    }
+
+    public static async Task<bool> ValidarUsuario(string email, string senha)
+    {
+        await Init();
+        try
+        {
+            var usuario = await db.Table<UsuarioModel>().Where(x => x.Email == email).FirstOrDefaultAsync();
+            return usuario.Senha == senha;
+        }
+        catch (Exception ex)
+        {
+            await Console.Out.WriteLineAsync(ex.Message);
+            return false;
+        }
     }
 
 }

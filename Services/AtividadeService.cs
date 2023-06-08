@@ -11,7 +11,7 @@ public static class AtividadeService
         if(db != null)
             return;
 
-        var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "RutinData.db");
+        var databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "LoginData.db");
 
         db = new SQLiteAsyncConnection(databasePath);
         await db.CreateTableAsync<AtividadeModel>();
