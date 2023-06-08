@@ -1,16 +1,18 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using Models.TbModels;
+﻿using Models.TbModels;
 using Rutin.Views.Pages;
 using Services;
 using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Windows.Input;
 
 namespace Rutin.ViewModels;
 
+#pragma warning disable S1133 // Deprecated code should be removed
+[Obsolete("Metodo de recarregar a pagina obsoleto")]
+#pragma warning restore S1133 // Deprecated code should be removed
 public class HomeViewModel : ObservableObject
 {
     public ICommand AdicionarAtividadeCommand { get; set; }
+    public ICommand RefreshCommand { get; set; }
 
     public ObservableCollection<CardAtividadeViewModel> Atividades { get; }
 
@@ -18,11 +20,20 @@ public class HomeViewModel : ObservableObject
     public string DiaSemana { get; set; } = DateTime.Now.Day.ToString();
     public string Mes { get; set; } = DateTime.Now.ToString("MMMM", new CultureInfo("pt-br")).ToUpper();
 
+
     public HomeViewModel()
     {
         AdicionarAtividadeCommand = new AsyncRelayCommand(OnAdicionarAtividadeClicked);
+        RefreshCommand = new AsyncRelayCommand(AtualizarAtividades);
 
         Atividades = new ObservableCollection<CardAtividadeViewModel>();
+    }
+
+    bool isRefreshing;
+    public bool IsRefreshing
+    {
+        get => isRefreshing;
+        set => SetProperty(ref isRefreshing, value);
     }
 
     private async Task OnAdicionarAtividadeClicked()
@@ -44,5 +55,14 @@ public class HomeViewModel : ObservableObject
                 DescricaoAtividade = atividade.Descricao
             });
         }
+    }
+
+    public async Task AtualizarAtividades()
+    {
+        IsRefreshing = true;
+        await Task.Delay(1500);
+        Atividades.Clear();
+        await AdicionarAtividades();
+        IsRefreshing = false;
     }
 }

@@ -1,10 +1,11 @@
 ﻿using Rutin.Views.Pages;
 using Services;
-using System.ComponentModel;
-using System.Windows.Input;
 
 namespace Rutin.ViewModels;
 
+#pragma warning disable S1133 // Deprecated code should be removed
+[Obsolete("Metodo de recarregar a pagina obsoleto")]
+#pragma warning restore S1133 // Deprecated code should be removed
 public class CardAtividadeViewModel : ObservableObject
 {
     private int _idAtividade;
@@ -17,6 +18,7 @@ public class CardAtividadeViewModel : ObservableObject
     public ICommand Expandir { get; }
 
     public ICommand ExcluirCommand { get; set; }
+
 
     public CardAtividadeViewModel()
     {
@@ -32,8 +34,9 @@ public class CardAtividadeViewModel : ObservableObject
     private async void Excluir()
     {
         await AtividadeService.RemoveAtividade(IdAtividade);
-        
+        await App.Current.MainPage.DisplayAlert("Sucesso", "Atividade excluída com sucesso", "Ok");
 
+        MessagingCenter.Send<CardAtividadeViewModel>(this, "RefreshAtividades");
     }
 
     public int IdAtividade
