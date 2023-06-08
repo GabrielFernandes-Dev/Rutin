@@ -1,6 +1,6 @@
 using Rutin.ViewModels;
 
-namespace Rutin.Views;
+namespace Rutin.Views.Pages;
 
 public partial class CadastroPage : ContentPage
 

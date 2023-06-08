@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using Rutin.Views.Pages;
 using Services;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -112,7 +113,7 @@ public partial class PessoaViewModel :ObservableObject, INotifyPropertyChanged
 
     public event PropertyChangedEventHandler PropertyChanged;
 
-    void OnPropertyChanged([CallerMemberName] string cpf = null)
+    public void OnPropertyChanged([CallerMemberName] string cpf = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(cpf));
     }
@@ -121,7 +122,11 @@ public partial class PessoaViewModel :ObservableObject, INotifyPropertyChanged
 
     private async Task OnCadastrarClicked()
     {
-        await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+        if (cpfIsValid && isSenhaValid)
+        {
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+            await LoginRegistroService.Registrar(Nome, cpf, Email, Senha);
+        }
     }
 
     private async Task OnVoltarClicked()

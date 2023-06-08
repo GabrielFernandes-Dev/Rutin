@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:Rutin.ViewModels"
              x:DataType="viewmodel:PessoaViewModel"
-             x:Class="Rutin.Views.CadastroPage"
+             x:Class="Rutin.Views.Pages.CadastroPage"
              Shell.NavBarIsVisible="False"
              Title="Cadastro"
              BackgroundColor="LightGray">
@@ -24,11 +24,7 @@
             HorizontalOptions="Center"
             MinimumHeightRequest="100"
             MinimumWidthRequest="100">
-
-            <Image
-                
-                />
-
+            <Image/>
         </Frame>
         
         <Label
@@ -38,7 +34,6 @@
             Margin="0,20,140,0"/>
 
         <Entry 
-            x:Name="Nome"
             BackgroundColor="White"
             Text="{Binding NomeInput}"
             TextColor="Black"
@@ -111,7 +106,8 @@
             TextColor="Black"
             HorizontalOptions="Center"
             MinimumWidthRequest="250"
-            Margin="0,-20,0,0"/>
+            Margin="0,-20,0,0"
+            IsPassword="True"/>
 
         <Label
             Text="Confirma a senha"
@@ -132,7 +128,8 @@
                 Text="{Binding ConfirmaSenhaInput}"
                 TextColor="Black"
                 HorizontalOptions="Center"
-                MinimumWidthRequest="250"/>
+                MinimumWidthRequest="250"
+                IsPassword="True"/>
 
             <Label
                 x:Name="ConfirmaSenha"
