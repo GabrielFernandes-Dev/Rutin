@@ -37,6 +37,7 @@ public class HomeViewModel : ObservableObject
         {
             Atividades.Add(new CardAtividadeViewModel
             {
+                IdAtividade = atividade.Id,
                 TituloAtividade = atividade.Nome,
                 HorarioAtividade = $"{atividade.HorarioInicio.ToString()} ➝ {atividade.HorarioFinal.ToString()}",
                 TipoNotificacao = atividade.TipoNotificacao,

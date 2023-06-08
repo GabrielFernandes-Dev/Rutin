@@ -1,10 +1,13 @@
-﻿using System.ComponentModel;
+﻿using Rutin.Views.Pages;
+using Services;
+using System.ComponentModel;
 using System.Windows.Input;
 
 namespace Rutin.ViewModels;
 
 public class CardAtividadeViewModel : ObservableObject
 {
+    private int _idAtividade;
     private string _tituloAtividade;
     private string _horarioAtividade;
     private string _tipoNotificacao;
@@ -13,14 +16,30 @@ public class CardAtividadeViewModel : ObservableObject
 
     public ICommand Expandir { get; }
 
+    public ICommand ExcluirCommand { get; set; }
+
     public CardAtividadeViewModel()
     {
         Expandir = new Command(ExpandirAtividade);
+        ExcluirCommand = new Command(Excluir);
     }
 
     private void ExpandirAtividade()
     {
         Expandido = !Expandido;
+    }
+
+    private async void Excluir()
+    {
+        await AtividadeService.RemoveAtividade(IdAtividade);
+        
+
+    }
+
+    public int IdAtividade
+    {
+        get => _idAtividade;
+        set => SetProperty(ref _idAtividade, value);
     }
 
     public string TituloAtividade
@@ -56,4 +75,5 @@ public class CardAtividadeViewModel : ObservableObject
             OnPropertyChanged(nameof(Expandido));
         }
     }
+
 }
